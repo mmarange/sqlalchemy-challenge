@@ -122,45 +122,79 @@ def temperature():
     stats_active_station_last1year_json = stats_active_station_last1year.to_json(orient='records')
     
     return stats_active_station_last1year_json
+#%%
+@app.route('/api/v1.0/<start>')
+def temp_start_date(start):
+    #FFind Tmin, Tave, Tmax for a range
+    conn = engine.connect()
+   
+    
+    """TMIN, TAVG, and TMAX for a list of dates.
+    
+    Args:
+        start_date (string): A date string in the format %Y-%m-%d
+        end_date (string): A date string in the format %Y-%m-%d
+        
+    Returns:
+        TMIN, TAVE, and TMAX
+    """
+    query = f'''
+            SELECT
+                 Min(tobs) as min_temp
+                ,round(Avg(tobs),1) as ave_temp
+                ,max(tobs) as max_temp 
+            FROM
+                station
+            Inner Join measurement
+                using(station)
+            where date >=
+                '{start}'
+                    
+    '''
+
+    results = pd.read_sql(query, conn)
+        
+    results_json = results.to_json(orient='records') 
+    print("stations app running")
+    return results_json 
 
 #%%
 @app.route('/api/v1.0/<start>/<end>')
-def ranges(start, end):
+def temp_ranges(start, end):
     #FFind Tmin, Tave, Tmax for a range
     conn = engine.connect()
-    start = start
-    end =  end
-    def calc_temps(start, end):
-        """TMIN, TAVG, and TMAX for a list of dates.
-        
-        Args:
-            start_date (string): A date string in the format %Y-%m-%d
-            end_date (string): A date string in the format %Y-%m-%d
-            
-        Returns:
-            TMIN, TAVE, and TMAX
-        """
-        query = f'''
-                SELECT
-                     Min(tobs) as min_temp
-                    ,round(Avg(tobs),1) as ave_temp
-                    ,max(tobs) as max_temp 
-                FROM
-                    station
-                Inner Join measurement
-                    using(station)
-                where date Between 
-                    '{start}'
-                AND
-                    '{end}'	
-               
-        '''
-
-        stats_btwn_dates = pd.read_sql(query, conn)
-      
-        return stats_btwn_dates
+   
     
-    results = calc_temps(start, end)
-    result_json = results.to_json(orient='records')
+    """TMIN, TAVG, and TMAX for a list of dates.
+    
+    Args:
+        start_date (string): A date string in the format %Y-%m-%d
+        end_date (string): A date string in the format %Y-%m-%d
+        
+    Returns:
+        TMIN, TAVE, and TMAX
+    """
+    query = f'''
+            SELECT
+                    Min(tobs) as min_temp
+                ,round(Avg(tobs),1) as ave_temp
+                ,max(tobs) as max_temp 
+            FROM
+                station
+            Inner Join measurement
+                using(station)
+            where date Between 
+                '{start}'
+            AND
+                '{end}'	
+            
+    '''
+
+    results = pd.read_sql(query, conn)
+        
+    results_json = results.to_json(orient='records') 
+    print("stations app running")
+    return results_json 
+
 if __name__ == '__main__':
     app.run(debug=True)

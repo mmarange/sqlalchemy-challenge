@@ -81,7 +81,7 @@ The Histogram below shows that the most days have a temperature around 75°F
 
 ### Temperature Analysis II
 
-  ![errorbar](Images/errorbar.PNG)
+  ![errorbar](Images/errorbar.png)
 
 ### Daily Rainfall Average
 

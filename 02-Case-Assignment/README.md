@@ -10,7 +10,7 @@
 
 The table shows precipitation statistics
 
-![stats](Images/prepstats.png)
+![stats](Images/prepstats.jpg)
 
 ### Station Analysis
 
@@ -33,25 +33,25 @@ The Histogram below shows that the most days have a temperature around 75°F
 * `/`
   * Home page.
 
-![home_page](Images/homepage.png)
+![home_page](Images/homepage.jpg)
 
 
 * `/api/v1.0/precipitation`
 
-![prep_app](Images/precipapp.png)
+![prep_app](Images/precipapp.jpg)
 
 
 * `/api/v1.0/stations`
 
-![station_app_](Images/stationsapp.png)
+![station_app_](Images/stationsapp.jpg)
 
 * `/api/v1.0/tobs`
 
-![temp](Images/tobsapp.png)
+![temp](Images/tobsapp.jpg)
 
 * `/api/v1.0/<start>` and `/api/v1.0/<start>/<end>`
 
-![start_date_app](Images/startdateapp.png)
+![start_date_app](Images/startdateapp.jpg)
 
 ![date_range](Images/daterangeapp.png)
 
@@ -68,20 +68,20 @@ The Histogram below shows that the most days have a temperature around 75°F
 
 * Average temperature in June at all stations across all available years in the dataset. 
 
- ![june_temp](Images/JuneAveTemp.png)
+ ![june_temp](Images/JuneAveTemp.jpg)
 
 * Average temperature in December at all stations across all available years in the dataset.
 
- ![dec_temp](Images/DecAveTemp.png)
+ ![dec_temp](Images/DecAveTemp.jpg)
 
 * The p-value of the test is 3.902513e-191, which is less than the significance level alpha (e.g., 0.05). This means that we can conclude that the Average Temperature in Hawai in June is statistically different from the Average Temperature in Hawai in December
 
- ![ttest](Images/ttest.png)
+ ![ttest](Images/ttest.jpg)
 
 
 ### Temperature Analysis II
 
-  ![errorbar](Images/errorbar.png)
+  ![errorbar](Images/errorbar.jpg)
 
 ### Daily Rainfall Average
 

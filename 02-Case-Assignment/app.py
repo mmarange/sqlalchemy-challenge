@@ -133,7 +133,7 @@ def temp_start_date(start):
     
     Args:
         start_date (string): A date string in the format %Y-%m-%d
-        end_date (string): A date string in the format %Y-%m-%d
+       
         
     Returns:
         TMIN, TAVE, and TMAX

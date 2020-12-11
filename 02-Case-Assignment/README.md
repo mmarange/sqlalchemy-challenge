@@ -16,7 +16,7 @@ The table shows precipitation statistics
 
 Whaihee station has the most obeservations as shown in the table below.
 
-![station_counts](Images/stationscount.png)
+![station_counts](Images/stationscount.jpg)
 
 The Histogram below shows that the most days have a temperature around 75°F
 
